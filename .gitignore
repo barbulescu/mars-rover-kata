@@ -3,4 +3,4 @@
 
 # Ignore Gradle build output directory
 build
-/.kotlin/sessions/kotlin-compiler-11742753179641876173.salive
+/.kotlin/sessions/*
