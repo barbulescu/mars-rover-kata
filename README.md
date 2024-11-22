@@ -3,7 +3,7 @@ The **Mars Rover Kata** is a popular programming exercise designed to improve pr
 ---
 
 ### **Problem Description**
-1. **The Plateau:**
+1. **The Grid:**
    - The rover operates on a rectangular grid (2D space) of defined size, such as 5x5.
    - The grid is bounded, meaning the rover cannot move beyond its edges.
 
@@ -24,7 +24,7 @@ The **Mars Rover Kata** is a popular programming exercise designed to improve pr
    - After executing the commands, the rover's final position and orientation are output, e.g., `1 3 N`.
 
 5. **Obstacles (optional extension):**
-   - Add obstacles on the plateau, represented by coordinates.
+   - Add obstacles on the grid, represented by coordinates.
    - If the rover encounters an obstacle, it stops moving and reports its last position.
 
 ---
@@ -32,7 +32,7 @@ The **Mars Rover Kata** is a popular programming exercise designed to improve pr
 ### **Example**
 
 #### Input:
-- Plateau size: `5x5`
+- Grid size: `5x5`
 - Initial position: `1 2 N`
 - Commands: `LMLMLMLMM`
 
@@ -59,7 +59,7 @@ The **Mars Rover Kata** is a popular programming exercise designed to improve pr
    - Incrementally develop functionality.
 
 2. **Code Design:**
-   - Modularize the rover's functionality (e.g., classes for Plateau, Rover, and Commands).
+   - Modularize the rover's functionality (e.g., classes for Grid, Rover, and Commands).
    - Use clean code principles to ensure readability and maintainability.
 
 3. **Problem Decomposition:**
