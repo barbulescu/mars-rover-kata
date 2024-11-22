@@ -1,4 +1,3 @@
 package ch.barbulescu.mars.rover.kata
 
-class Grid {
-}
+class Grid(val cols: Int, val rows: Int)
