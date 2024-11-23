@@ -17,10 +17,18 @@ data class Rover(val x: Int, val y: Int, val orientation: Orientation) {
         WEST -> copy(orientation = NORTH)
     }
 
-    fun rotateLeft(): Rover = when(orientation) {
+    fun rotateLeft(): Rover = when (orientation) {
         NORTH -> copy(orientation = WEST)
         WEST -> copy(orientation = SOUTH)
         SOUTH -> copy(orientation = EAST)
         EAST -> copy(orientation = NORTH)
     }
+}
+
+fun String.toRover(): Rover {
+    val parts = this.split(' ')
+    val x = parts[0].toInt()
+    val y = parts[1].toInt()
+    val orientation = parts[2].toOrientation()
+    return Rover(x, y, orientation)
 }

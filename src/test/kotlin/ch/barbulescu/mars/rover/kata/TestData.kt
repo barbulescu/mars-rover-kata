@@ -33,3 +33,12 @@ class RoverRotateLeftTestData : ArgumentsProvider {
     )
 }
 
+class OrientationTestData : ArgumentsProvider {
+    override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> = Stream.of(
+        Arguments.of("N", NORTH),
+        Arguments.of("E", EAST),
+        Arguments.of("S", SOUTH),
+        Arguments.of("W", WEST),
+    )
+}
+
