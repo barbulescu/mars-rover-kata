@@ -25,10 +25,12 @@ data class Rover(val x: Int, val y: Int, val orientation: Orientation) {
     }
 }
 
-fun String.toRover(): Rover {
-    val parts = this.split(' ')
-    val x = parts[0].toInt()
-    val y = parts[1].toInt()
-    val orientation = parts[2].toOrientation()
-    return Rover(x, y, orientation)
-}
+fun String.toRover(): Rover = this
+    .split(' ')
+    .let { parts ->
+        Rover(
+            x = parts[0].toInt(),
+            y = parts[1].toInt(),
+            orientation = parts[2].toOrientation()
+        )
+    }
