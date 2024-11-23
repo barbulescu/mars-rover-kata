@@ -3,42 +3,30 @@ package ch.barbulescu.mars.rover.kata
 import ch.barbulescu.mars.rover.kata.Orientation.*
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtensionContext
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.Arguments
+import org.junit.jupiter.params.provider.ArgumentsProvider
+import org.junit.jupiter.params.provider.ArgumentsSource
+import java.util.stream.Stream
 
 class GridTest {
+    private val grid = Grid(5, 5)
 
-    @Test
-    fun `move rover north`() {
-        val grid = Grid(5, 5)
-        val rover = Rover(1, 1, NORTH)
-        val movedRover = grid.move(rover)
-
-        assertThat(movedRover).isEqualTo(rover.copy(y = 0))
+    @ParameterizedTest
+    @ArgumentsSource(GridTestDataSource::class)
+    fun `test rover movement on free grid`(start: Rover, end: Rover) {
+        val movedRover = grid.move(start)
+        assertThat(movedRover).isEqualTo(end)
     }
+}
 
-    @Test
-    fun `move rover east`() {
-        val grid = Grid(5, 5)
-        val rover = Rover(1, 1, EAST)
-        val movedRover = grid.move(rover)
+class GridTestDataSource : ArgumentsProvider {
+    override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> = Stream.of(
+        Arguments.of(Rover(1, 1, NORTH), Rover(1, 0, NORTH)),
+        Arguments.of(Rover(1, 1, EAST), Rover(2, 1, EAST)),
+        Arguments.of(Rover(1, 1, SOUTH), Rover(1, 2, SOUTH)),
+        Arguments.of(Rover(1, 1, WEST), Rover(0, 1, WEST)),
+    )
 
-        assertThat(movedRover).isEqualTo(rover.copy(x = 2))
-    }
-
-    @Test
-    fun `move rover south`() {
-        val grid = Grid(5, 5)
-        val rover = Rover(1, 1, SOUTH)
-        val movedRover = grid.move(rover)
-
-        assertThat(movedRover).isEqualTo(rover.copy(y = 2))
-    }
-
-    @Test
-    fun `move rover west`() {
-        val grid = Grid(5, 5)
-        val rover = Rover(1, 1, WEST)
-        val movedRover = grid.move(rover)
-
-        assertThat(movedRover).isEqualTo(rover.copy(x = 0))
-    }
 }
