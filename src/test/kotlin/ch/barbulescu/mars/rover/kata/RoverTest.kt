@@ -7,9 +7,16 @@ import org.junit.jupiter.params.provider.ArgumentsSource
 class RoverTest {
 
     @ParameterizedTest
-    @ArgumentsSource(RoverTestDataSource::class)
-    fun `test rover movement on free grid`(start: Rover, end: Rover) {
+    @ArgumentsSource(RoverMoveTestData::class)
+    fun `test rover movement`(start: Rover, end: Rover) {
         val movedRover = start.move()
+        assertThat(movedRover).isEqualTo(end)
+    }
+
+    @ParameterizedTest
+    @ArgumentsSource(RoverRotateTestData::class)
+    fun `test rover rotate`(start: Rover, end: Rover) {
+        val movedRover = start.rotateLeft()
         assertThat(movedRover).isEqualTo(end)
     }
 

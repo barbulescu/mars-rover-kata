@@ -8,7 +8,7 @@ class GridTest {
     private val grid = Grid(5, 5)
 
     @ParameterizedTest
-    @ArgumentsSource(RoverTestDataSource::class)
+    @ArgumentsSource(RoverMoveTestData::class)
     fun `test rover movement on free grid`(start: Rover, end: Rover) {
         val movedRover = grid.move(start)
         assertThat(movedRover).isEqualTo(end)
