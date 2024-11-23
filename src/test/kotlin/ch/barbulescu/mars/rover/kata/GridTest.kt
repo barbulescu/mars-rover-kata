@@ -9,36 +9,36 @@ class GridTest {
     @Test
     fun `move rover north`() {
         val grid = Grid(5, 5)
-        val rover = Rover(1, 1)
-        val movedRover = grid.move(rover, NORTH)
+        val rover = Rover(1, 1, NORTH)
+        val movedRover = grid.move(rover)
 
-        assertThat(movedRover).isEqualTo(Rover(1, 0))
+        assertThat(movedRover).isEqualTo(rover.copy(y = 0))
     }
 
     @Test
     fun `move rover east`() {
         val grid = Grid(5, 5)
-        val rover = Rover(1, 1)
-        val movedRover = grid.move(rover, EAST)
+        val rover = Rover(1, 1, EAST)
+        val movedRover = grid.move(rover)
 
-        assertThat(movedRover).isEqualTo(Rover(2, 1))
+        assertThat(movedRover).isEqualTo(rover.copy(x = 2))
     }
 
     @Test
     fun `move rover south`() {
         val grid = Grid(5, 5)
-        val rover = Rover(1, 1)
-        val movedRover = grid.move(rover, SOUTH)
+        val rover = Rover(1, 1, SOUTH)
+        val movedRover = grid.move(rover)
 
-        assertThat(movedRover).isEqualTo(Rover(1, 2))
+        assertThat(movedRover).isEqualTo(rover.copy(y = 2))
     }
 
     @Test
     fun `move rover west`() {
         val grid = Grid(5, 5)
-        val rover = Rover(1, 1)
-        val movedRover = grid.move(rover, WEST)
+        val rover = Rover(1, 1, WEST)
+        val movedRover = grid.move(rover)
 
-        assertThat(movedRover).isEqualTo(Rover(0, 1))
+        assertThat(movedRover).isEqualTo(rover.copy(x = 0))
     }
 }

@@ -8,34 +8,34 @@ class RoverTest {
 
     @Test
     fun `move rover north`() {
-        val rover = Rover(1, 1)
-        val movedRover = rover.move(NORTH)
+        val rover = Rover(1, 1, NORTH)
+        val movedRover = rover.move()
 
-        assertThat(movedRover).isEqualTo(Rover(1, 0))
+        assertThat(movedRover).isEqualTo(rover.copy(y = 0))
     }
 
     @Test
     fun `move rover east`() {
-        val rover = Rover(1, 1)
-        val movedRover = rover.move(EAST)
+        val rover = Rover(1, 1, EAST)
+        val movedRover = rover.move()
 
-        assertThat(movedRover).isEqualTo(Rover(2, 1))
+        assertThat(movedRover).isEqualTo(rover.copy(x = 2))
     }
 
     @Test
     fun `move rover south`() {
-        val rover = Rover(1, 1)
-        val movedRover = rover.move(SOUTH)
+        val rover = Rover(1, 1, SOUTH)
+        val movedRover = rover.move()
 
-        assertThat(movedRover).isEqualTo(Rover(1, 2))
+        assertThat(movedRover).isEqualTo(rover.copy(y = 2))
     }
 
     @Test
     fun `move rover west`() {
-        val rover = Rover(1, 1)
-        val movedRover = rover.move(WEST)
+        val rover = Rover(1, 1, WEST)
+        val movedRover = rover.move()
 
-        assertThat(movedRover).isEqualTo(Rover(0, 1))
+        assertThat(movedRover).isEqualTo(rover.copy(x = 0))
     }
 
 }
