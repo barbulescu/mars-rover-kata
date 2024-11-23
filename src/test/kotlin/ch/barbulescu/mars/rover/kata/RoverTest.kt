@@ -14,9 +14,9 @@ class RoverTest {
     }
 
     @ParameterizedTest
-    @ArgumentsSource(RoverRotateTestData::class)
-    fun `test rover rotate`(start: Rover, end: Rover) {
-        val movedRover = start.rotateLeft()
+    @ArgumentsSource(RoverRotateRightTestData::class)
+    fun `test rover rotate right`(start: Rover, end: Rover) {
+        val movedRover = start.rotateRight()
         assertThat(movedRover).isEqualTo(end)
     }
 

@@ -14,3 +14,13 @@ class RoverMoveTestData : ArgumentsProvider {
         Arguments.of(Rover(1, 1, WEST), Rover(0, 1, WEST)),
     )
 }
+
+class RoverRotateRightTestData : ArgumentsProvider {
+    override fun provideArguments(context: ExtensionContext?): Stream<out Arguments> = Stream.of(
+        Arguments.of(Rover(1, 1, NORTH), Rover(1, 1, EAST)),
+        Arguments.of(Rover(1, 1, EAST), Rover(1, 1, SOUTH)),
+        Arguments.of(Rover(1, 1, SOUTH), Rover(1, 1, WEST)),
+        Arguments.of(Rover(1, 1, WEST), Rover(1, 1, NORTH)),
+    )
+}
+

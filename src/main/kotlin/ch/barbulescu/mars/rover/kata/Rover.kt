@@ -10,7 +10,7 @@ data class Rover(val x: Int, val y: Int, val orientation: Orientation) {
         WEST -> copy(x = x - 1)
     }
 
-    fun rotateLeft(): Rover = when (orientation) {
+    fun rotateRight(): Rover = when (orientation) {
         NORTH -> copy(orientation = EAST)
         EAST -> copy(orientation = SOUTH)
         SOUTH -> copy(orientation = WEST)
