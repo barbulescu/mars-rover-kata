@@ -9,6 +9,7 @@ repositories {
 
 dependencies {
     testImplementation("org.assertj:assertj-core:3.26.3")
+    testImplementation("io.mockk:mockk:1.13.13")
 }
 
 testing {

@@ -1,17 +1,23 @@
 package ch.barbulescu.mars.rover.kata
 
+import io.mockk.every
+import io.mockk.mockk
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.ArgumentsSource
+import org.junit.jupiter.api.Test
 
 class GridTest {
-    private val grid = Grid(5, 5)
 
-    @ParameterizedTest
-    @ArgumentsSource(RoverMoveTestData::class)
-    fun `test rover movement on free grid`(start: Rover, end: Rover) {
+    @Test
+    fun `grid move is delegated to rover`() {
+        val start = mockk<Rover>()
+        val end = mockk<Rover>()
+
+        every { start.move() } returns end
+
+        val grid = Grid(5, 5)
         val movedRover = grid.move(start)
-        assertThat(movedRover).isEqualTo(end)
+
+        assertThat(movedRover).isSameAs(end)
     }
 }
 
